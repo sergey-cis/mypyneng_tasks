@@ -1,3 +1,6 @@
+# -*- coding: utf-8 -*-
+#!~/PracticeLab/PyNeg/coursefiles/bin/python
+
 """
 Якщо запустити код завдання, на екран буде виведено:
 $ python task_01.py
@@ -10,6 +13,6 @@ Ruby is a high-level, interpreted, general-purpose programming language.
 При цьому не можна змінювати рядок start_data вручну, тільки за допомогою Python.
 """
 start_data = "Python is a high-level, interpreted, general-purpose programming language."
-start_data.replace("Python is a high-level, interpreted, general-purpose programming language.", "$ python task_01.py \nRuby is a high-level, interpreted, general-purpose programming language.")
+start_data = start_data.replace("Python is a high-level, interpreted, general-purpose programming language.", "$ python task_01.py \nRuby is a high-level, interpreted, general-purpose programming language.")
 print(start_data)
 
