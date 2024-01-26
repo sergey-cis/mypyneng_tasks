@@ -21,3 +21,7 @@ words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
+
+n = str(words).strip("[]").replace("',", " ").replace("'", "")
+print(n )
+

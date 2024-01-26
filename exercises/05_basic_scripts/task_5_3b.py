@@ -57,3 +57,24 @@ london_co = {
         "routing": True,
     },
 }
+
+dev_name = (input("please enter device name: ")).lower()
+
+for key in london_co:
+    if dev_name == key:
+        a = (london_co[dev_name].values())
+        for val in a:
+            dev_param = ("").join(val)
+            
+            
+
+"""
+if dev_name in london_co.keys():
+    for key in london_co.keys():
+        for val in  london_co.keys[dev_name]:
+            print(val)
+        #dev_param = input("enter param name from the list ")
+        #print(london_co[key][dev_param])
+else:
+    print('you enter wrong device name. Try "r1", "r2" or "sw1"')
+    """

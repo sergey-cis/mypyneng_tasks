@@ -23,3 +23,10 @@
 """
 
 ip = "192.168.3.1"
+
+ip_spl = ip.split(".")
+ip_digit = """
+    {:^08b} {:^08b} {:^08b} {:^08b} 
+"""
+
+print(ip_digit.format( int(ip_spl[0]), int(ip_spl[1]), int(ip_spl[2]), int(ip_spl[3]))) #{:<8} {:<8} {:<8} {:<8}\nip_spl[0], ip_spl[1], ip_spl[2], ip_spl[3],

@@ -51,3 +51,12 @@ london_co = {
         "routing": True,
     },
 }
+
+user_ask = input("please enter device name: ")
+
+if user_ask in london_co.keys():
+    for key, values in london_co.items():
+        if user_ask == key:
+            print(london_co[key])
+else:
+    print('you enter wrong device name. Try "r1", "r2" or "sw1"')

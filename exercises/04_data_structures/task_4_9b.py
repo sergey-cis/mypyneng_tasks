@@ -25,9 +25,14 @@ late
 1980s
 
 Обмеження: не можна редагувати список words.
-Буде плюсом вирішити завдання без використання циклу for.
+Буд
+е плюсом вирішити завдання без використання циклу for.
 """
 words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
+
+n = str(words).strip("[]").replace("',", "\n").replace("'", "")
+print(n)
+

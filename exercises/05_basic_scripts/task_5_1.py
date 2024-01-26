@@ -28,3 +28,12 @@ words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
+separator = (input("please enter some number: "))
+
+if int(separator) <= len(words):
+    for i in range(len(words)):
+         if i == int(separator):
+               print(words[i])
+else:
+    print("you enter wrong number. try again")
+        
