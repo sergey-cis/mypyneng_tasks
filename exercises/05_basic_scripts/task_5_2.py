@@ -25,6 +25,7 @@ Guido===van===Rossum===began===working===on===Python
 """
 words = ['Guido', 'van', 'Rossum', 'began', 'working', 'on', 'Python']
 
+#My solution
 separator = input("please eneter wanted separator:  ")
 
 opt1 = (separator).join(words)

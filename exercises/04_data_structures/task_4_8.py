@@ -24,9 +24,22 @@
 
 ip = "192.168.3.1"
 
-ip_spl = ip.split(".")
-ip_digit = """
-    {:^08b} {:^08b} {:^08b} {:^08b} 
-"""
+#My solution
 
-print(ip_digit.format( int(ip_spl[0]), int(ip_spl[1]), int(ip_spl[2]), int(ip_spl[3]))) #{:<8} {:<8} {:<8} {:<8}\nip_spl[0], ip_spl[1], ip_spl[2], ip_spl[3],
+#ip_spl = ip.split(".")
+#ip_digit = """
+#    {:^8} {:^8} {:^8} {:^8}
+#    {:>08b} {:>08b} {:>08b} {:>08b} 
+#"""
+#
+#print(ip_digit.format(ip_spl[0], ip_spl[1], ip_spl[2], ip_spl[3], int(ip_spl[0]), int(ip_spl[1]), int(ip_spl[2]), int(ip_spl[3]))) 
+
+
+#Right solution
+ip_list = ip.split(".")
+template = """
+{:<10b}  {:<10b}  {:<10b}  {:<10b}
+"""
+print(
+    template.format(int(ip_list[0].strip()), int(ip_list[1].strip()),
+                    int(ip_list[2].strip()), int(ip_list[3].strip())))

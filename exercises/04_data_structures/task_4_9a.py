@@ -21,7 +21,12 @@ words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
-
+"""
+#My solution
 n = str(words[::2]).strip("[]").replace("',", " ").replace("'", "")
 print(n[::])
+"""
+#Right solution
+result = " ".join(words[::2])
+print(result)
 

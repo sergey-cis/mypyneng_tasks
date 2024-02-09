@@ -52,6 +52,8 @@ london_co = {
     },
 }
 
+#My solution with "if"
+"""
 user_ask = input("please enter device name: ")
 
 if user_ask in london_co.keys():
@@ -60,3 +62,7 @@ if user_ask in london_co.keys():
             print(london_co[key])
 else:
     print('you enter wrong device name. Try "r1", "r2" or "sw1"')
+    """
+#Solution without "if"
+user_request = input("Please enter device name: ")
+print(london_co.get(user_request))

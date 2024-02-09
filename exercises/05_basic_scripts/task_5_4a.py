@@ -49,3 +49,23 @@ Mask:
 255       255       255       240
 11111111  11111111  11111111  11110000
 """
+
+user_ip = input('Enter the IP and NetMask: ')
+input_list = user_ip.split(" ")
+ip_oct1, ip_oct2, ip_oct3, ip_oct4 = input_list[0].split(".")[0], input_list[0].split(".")[1], input_list[0].split(".")[2], input_list[0].split(".")[3]
+m_oct1, m_oct2, m_oct3, m_oct4 = input_list[-1].split(".")[0], input_list[-1].split(".")[1],input_list[-1].split(".")[2],input_list[-1].split(".")[3]
+
+m_ripe = len((bin(int(m_oct1)) + bin((int(m_oct2))) + bin(int(m_oct3)) + bin(int(m_oct4))).replace("0b", "").replace("0", ""))
+
+
+
+template = """
+        Network:
+          {:<8}  {:<8}  {:<8}  {:<8}
+          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
+        Mask:
+         /{  }
+          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
+      """
+print(template.format(ip_oct1, ip_oct2, ip_oct3, ip_oct4, int(ip_oct1), int(ip_oct2), int(ip_oct3), int(ip_oct4), m_ripe, int(m_oct1), int(m_oct2), int(m_oct3), int(m_oct4)))
+

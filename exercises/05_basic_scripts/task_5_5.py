@@ -56,8 +56,17 @@ switchport nonegotiate
 spanning-tree portfast
 spanning-tree bpduguard enable
 """
-
 trunk_template = """switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan {}
 """
+
+ask_mode_int = input("Enter interface mode (access/trunk): ")
+ask_num_int = input("Enter interface type and number: ")
+ask_vlan = input("Enter VLAN(s) number: ")
+
+if ask_mode_int == "trunk":
+    print(f"interface {ask_num_int}\n", trunk_template.format(ask_vlan))
+else:
+    print(f"interface {ask_num_int}\n", access_template.format(ask_vlan))
+

@@ -33,6 +33,13 @@ words = [
     'Python', 'in', 'the', 'late', '1980s',
 ]
 
+"""
+#My solution
 n = str(words).strip("[]").replace("',", "\n").replace("'", "")
 print(n)
+ """
+ #Right solution
+result = "\n".join(words)
+print(result)
+
 

@@ -16,3 +16,13 @@
   стовпцями для поділу октетів між собою)
 
 """
+user_ip = input('Enter the IP: ')
+ip_list = user_ip.split(".")
+template = """
+          {:<8}  {:<8}  {:<8}  {:<8}
+          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
+      """
+oct1, oct2, oct3, oct4 = ip_list
+num_oct1, num_oct2,num_oct3,num_oct4 = int(oct1), int(oct2), int(oct3), int(oct4)
+
+print(template.format(oct1,oct2,oct3,oct4, num_oct1,num_oct2, num_oct3, num_oct4))

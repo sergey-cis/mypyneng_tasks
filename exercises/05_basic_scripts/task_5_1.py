@@ -28,12 +28,14 @@ words = [
     'Guido', 'van', 'Rossum', 'began', 'working', 'on',
     'Python', 'in', 'the', 'late', '1980s',
 ]
-separator = (input("please enter some number: "))
+separator = (input("Enter separator: "))
+
+#My solution
 
 if int(separator) <= len(words):
     for i in range(len(words)):
          if i == int(separator):
-               print(words[i])
+               print(words[i].lower())
 else:
     print("you enter wrong number. try again")
-        
+

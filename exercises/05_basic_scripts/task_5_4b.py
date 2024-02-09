@@ -43,3 +43,27 @@ bin_ip = "0000101000000001000000111000011"
 адресі може бути 32 біти, а 32 - 28 = 4)
 00001010000000010000000111000000
 """
+user_ip = input('Enter the IP and NetMask: ')
+input_list = user_ip.split(" ")
+
+ip_oct1, ip_oct2, ip_oct3, ip_oct4 = input_list[0].split(".")[0], input_list[0].split(".")[1], input_list[0].split(".")[2], input_list[0].split(".")[3]
+ip_bin = list("{:0>8b}".format(int(ip_oct1))+"{:0>8b}".format(int(ip_oct2))+ "{:0>8b}".format(int(ip_oct3))+ "{:0>8b}".format(int(ip_oct4)))
+
+
+
+m_oct1, m_oct2, m_oct3, m_oct4 = input_list[-1].split(".")[0], input_list[-1].split(".")[1],input_list[-1].split(".")[2],input_list[-1].split(".")[3]
+
+m_ripe = len((bin(int(m_oct1)) + bin((int(m_oct2))) + bin(int(m_oct3)) + bin(int(m_oct4))).replace("0b", "").replace("0", ""))
+ip_net = ("").join(ip_bin[:m_ripe]) + (32-m_ripe)*"0"
+ip_net_oct1, ip_net_oct2,ip_net_oct3,ip_net_oct4 = int(("").join(list(ip_net)[0:8]),2), int(("").join(list(ip_net)[8:16]),2), int(("").join(list(ip_net)[16:24]),2), int(("").join(list(ip_net)[24::]),2)
+
+template = """
+        Network:
+          {:<8}  {:<8}  {:<8}  {:<8}
+          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
+        Mask:
+         /{}
+          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
+      """
+print(template.format(ip_net_oct1, ip_net_oct2, ip_net_oct3, ip_net_oct4, int(ip_net_oct1), int(ip_net_oct2), int(ip_net_oct3), int(ip_net_oct4), m_ripe, int(m_oct1), int(m_oct2), int(m_oct3), int(m_oct4)))
+

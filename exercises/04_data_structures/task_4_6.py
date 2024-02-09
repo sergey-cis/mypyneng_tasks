@@ -19,9 +19,11 @@ ospf_route. Значення рядка ospf_route треба отримати �
 """
 
 ospf_route = "      10.0.24.0/24 [110/41] via 10.0.13.3, 3d18h, FastEthernet0/0"
-
+"""
 result = ospf_route.lstrip().replace("[", "").replace("]","").replace("via", " ").replace("," ," ").split()
 print(result)
+"""
+
 template = """
 Prefix                {}
 AD/Metric             {}
@@ -29,5 +31,5 @@ Next-Hop              {}
 Last update           {}
 Outbound Interface    {}
 """
-
-print(template.format(result[0], result[1], result[2], result[3], result[4]))
+result = ("".join(ospf_route.strip().replace(",","").replace("via","").replace("[", "").replace("]",""))).split()
+print(template.format(result[0],result[1],result[2],result[3],result[4]))

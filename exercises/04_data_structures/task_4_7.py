@@ -17,10 +17,16 @@ print.
 """
 
 mac = "AAAA:BBBB:CCCC"
-
+"""
 new_mac = (" ").join(mac.replace(":", "")).split()
 
+My solution
 print("{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}".format(int(new_mac[0], 16),
                                         int(new_mac[1], 16),int(new_mac[2], 16), int(new_mac[3], 16), int(new_mac[4], 16),
                                         int(new_mac[5], 16), int(new_mac[6], 16), int(new_mac[7], 16), int(new_mac[8], 16),
                                         int(new_mac[9], 16), int(new_mac[10], 16), int(new_mac[11],16)))
+                                        """
+
+#"Right solution"
+result = int(mac.replace(":", ""), 16)
+print("{:b}".format(result))

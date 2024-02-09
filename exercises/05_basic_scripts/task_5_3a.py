@@ -52,16 +52,13 @@ london_co = {
     },
 }
 
-dev_name = (input("please enter device name: ")).lower()
 
-dev_param = (input('please enter parameter of the device("ios", "model", "vlans" and so on... ) ')).lower()
 
-if dev_name in london_co.keys():
-    for key, values in london_co.items():
-        if dev_name == key and (dev_param in london_co[key]):
-            #print(london_co[key])
-            print(london_co[key][dev_param])
-        else:
-            print("the device hasn't this parameter")
-else:
-    print('you enter wrong device name. Try "r1", "r2" or "sw1"')
+#Solution without "if"
+user_request = input("Please enter device name: ")
+#dev_keys  = (london_co.get(user_request)).keys()
+#keys_dev = (london_co[user_request]).keys()
+ask_param = input("Please enter required parameter: ") # from the list: {} ").format((tuple(keys_dev))))
+print(london_co[user_request][ask_param])
+
+
