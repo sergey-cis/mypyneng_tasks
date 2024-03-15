@@ -50,7 +50,7 @@ from pprint import pprint
 ignore = ["duplex", "alias", "configuration", "end", "service"]
 
 
-with open(filename) as f:
+with open() as f:
     for line in f:
         if not line.startswith("!"):
             print(line.rstrip())
