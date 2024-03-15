@@ -65,4 +65,4 @@ else:
     """
 #Solution without "if"
 user_request = input("Please enter device name: ")
-print(london_co.get(user_request))
+print(london_co.get(user_request))  

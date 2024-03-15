@@ -62,7 +62,7 @@ london_co = {
 user_request = input("Please enter device name: ")
 dev_param  = london_co.get(user_request, "There isn't such device")
 ask_param = input("Please enter required parameter from the list: {} ".format(tuple(dev_param)))
-dev_keys = dev_param.get(ask_param, "Ther is not such parameter")
+dev_keys = dev_param.get(ask_param, "no such parameter")
 print(dev_keys or london_co[user_request][ask_param])
 
 

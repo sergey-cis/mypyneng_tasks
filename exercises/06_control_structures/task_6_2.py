@@ -16,3 +16,5 @@ Python.
 
 line = "Guido van Rossum began working on Python in the late 1980s"
 
+result = line.replace("a", "A").replace("e", "E").replace("i", "I").replace("u", "U").replace("y","Y").replace("o", "O")
+print(result)

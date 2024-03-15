@@ -16,13 +16,34 @@
   стовпцями для поділу октетів між собою)
 
 """
-user_ip = input('Enter the IP: ')
-ip_list = user_ip.split(".")
-template = """
-          {:<8}  {:<8}  {:<8}  {:<8}
-          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
-      """
-oct1, oct2, oct3, oct4 = ip_list
-num_oct1, num_oct2,num_oct3,num_oct4 = int(oct1), int(oct2), int(oct3), int(oct4)
+# My not elegant solution
+#user_ip = input('Enter the IP: ')
+#ip_list = user_ip.split(".")
+#template = """
+#          {:<8}  {:<8}  {:<8}  {:<8}
+#          {:0>8b}  {:0>8b}  {:0>8b}  {:0>8b}
+#      """
+#oct1, oct2, oct3, oct4 = ip_list
+#num_oct1, num_oct2,num_oct3,num_oct4 = int(oct1), int(oct2), int(oct3), int(oct4)
+#
+#print(template.format(oct1,oct2,oct3,oct4, num_oct1,num_oct2, num_oct3, num_oct4))
 
-print(template.format(oct1,oct2,oct3,oct4, num_oct1,num_oct2, num_oct3, num_oct4))
+
+#Right solution from answer
+network = input("Enter IP address: ")
+
+ip_list = network.split(".")
+
+oct1, oct2, oct3, oct4 = [
+    int(ip_list[0]),
+    int(ip_list[1]),
+    int(ip_list[2]),
+    int(ip_list[3]),
+]
+
+ip_output = """
+Network:
+{0:<8}  {1:<8}  {2:<8}  {3:<8}
+{0:08b}  {1:08b}  {2:08b}  {3:08b}"""
+
+print(ip_output.format(oct1, oct2, oct3, oct4))

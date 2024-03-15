@@ -54,11 +54,16 @@ london_co = {
 
 
 
-#Solution without "if"
-user_request = input("Please enter device name: ")
+# My Solution without "if"
+#user_request = input("Please enter device name: ")
 #dev_keys  = (london_co.get(user_request)).keys()
 #keys_dev = (london_co[user_request]).keys()
-ask_param = input("Please enter required parameter: ") # from the list: {} ").format((tuple(keys_dev))))
-print(london_co[user_request][ask_param])
+#ask_param = input("Please enter required parameter: ") # from the list: {} ").format((tuple(keys_dev))))
+#print(london_co[user_request][ask_param])
 
+# From answer...
+device = input("Enter device name: ")
+parameter = input("Enter parameter name: ")
+
+print(london_co[device][parameter])
 

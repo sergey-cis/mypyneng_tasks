@@ -39,7 +39,7 @@ spanning-tree bpduguard enable
 
 Приклад виконання скрипта при виборі режиму trunk
 $ python task_5_5.py
-Enter interface mode (access/trunk): trunk
+Enter interface mode (access or trunk): trunk
 Enter interface type and number: Fa0/7
 Enter VLAN(s) number: 2,3,4,5
 
@@ -50,23 +50,26 @@ switchport trunk allowed vlan 2,3,4,5
 
 """
 
-access_template = """switchport mode access
+access_template = """
+switchport mode access
 switchport access vlan {}
 switchport nonegotiate
 spanning-tree portfast
 spanning-tree bpduguard enable
 """
-trunk_template = """switchport trunk encapsulation dot1q
+trunk_template = """
+switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan {}
 """
 
-ask_mode_int = input("Enter interface mode (access/trunk): ")
-ask_num_int = input("Enter interface type and number: ")
-ask_vlan = input("Enter VLAN(s) number: ")
+ask_mode = input("Enter interface mode (access/trunk): ").strip()
+ask_num = input("Enter interface (type and number): ").strip()
+ask_vlan = input("Enter VLAN(s) number: ").strip()
 
-if ask_mode_int == "trunk":
-    print(f"interface {ask_num_int}\n", trunk_template.format(ask_vlan))
-else:
-    print(f"interface {ask_num_int}\n", access_template.format(ask_vlan))
+interface={"mode": ask_mode, "number":ask_num, "vlan":ask_vlan}
 
+if interface.get("mode") == "trunk":
+    print("interface", interface.get("number"), trunk_template.format(interface.get("vlan").strip()))
+if interface.get("mode") == 'access':
+    print("interface", interface.get("number"), access_template.format(interface.get("vlan").strip()))

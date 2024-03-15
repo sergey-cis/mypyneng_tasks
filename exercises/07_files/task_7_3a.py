@@ -37,3 +37,16 @@
 однаковий, то з другого. Так працює за замовчуванням функція sorted та метод
 sort, якщо сортувати перелік списків вище.
 """
+from pprint import pprint
+
+result = []
+with open("CAM_table.txt", "r") as file:
+    for line in file:
+        columns = line.split()
+        if len(columns) > 3 and columns[0][0].isdigit():
+            vlan, mac, intf = columns[0].strip(), columns[1].strip(), columns[-1].strip()
+            result.append([int(vlan),mac,intf])
+
+sorted_result = sorted(result)
+for vlan, mac, intf in sorted_result:
+    print(f"{vlan:<10}{mac:20}{intf:20}")

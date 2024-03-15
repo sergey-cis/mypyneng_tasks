@@ -12,3 +12,18 @@ Last update           3d18h
 Outbound Interface    FastEthernet0/0
 
 """
+template = """Prefix              {:<20}
+AD/Metric           {:<20}
+Next-Hop            {:<20}
+Last update         {:<20}
+Outbound Interface  {:<20}
+"""
+from pprint import pprint
+with open('ospf.txt', "r") as f:
+    for l in f:
+        splited = l.strip().split()
+        pref, metric, n_hop, updt, out_intf = splited[1],splited[2],splited[4], splited[5],splited[6]
+        print(template.format(pref.rstrip(), metric.rstrip().strip("[]"), n_hop.rstrip(","), updt.rstrip(","), out_intf.rstrip(",")))
+
+    
+

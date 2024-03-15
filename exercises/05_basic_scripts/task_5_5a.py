@@ -11,7 +11,7 @@
 перший варіант рішення краще зробити так, як виходитиме.
 """
 
-access_template ="""
+access_template =""" 
 switchport mode access
 switchport access vlan {}
 switchport nonegotiate
@@ -24,13 +24,14 @@ switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan {}
 """
-ask_mode_int = input("Enter interface mode (access/trunk): ")
-ask_num_int = input("Enter interface type and number: ")
+ask_mode_int = input("Enter interface mode (access/trunk): ").replace(" ", "")
+ask_num_int = input("Enter interface type and number: ").replace(" ", "")
+
 
 
 if ask_mode_int == "trunk":
     ask_vlan = input('Enter the allowed VLANs: ')
-    print(f"interface {ask_num_int}\n".strip(), (trunk_template.format(ask_vlan)).strip(" "))
+    print(f"interface {ask_num_int}", trunk_template.format(ask_vlan))
 else:
     ask_vlan = input('Enter VLAN number: ')
-    print(f"interface {ask_num_int}\n".strip(), (access_template.format(ask_vlan)).strip(" "))
+    print(f"interface {ask_num_int}", access_template.format(ask_vlan))

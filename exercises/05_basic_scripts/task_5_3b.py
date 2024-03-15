@@ -58,21 +58,23 @@ london_co = {
     },
 }
 
-#Solution without "if"
+# My Solution without "if"
 user_request = input("Please enter device name: ")
 dev_keys  = (london_co.get(user_request)).keys()
 ask_param = input("Please enter required parameter from the list: {} ".format(tuple(dev_keys)))
 print(london_co[user_request][ask_param])
 
 
-#Second solution
-user_request = input('Enter device name: ')
-req_val = []
-for london_co_key, london_co_value in london_co.items():
-    if user_request == london_co_key:
-        for u_k in london_co_value:
-            req_val.append(u_k)
 
-param_request = input('Enter parameter name from the list - {}: '.format(
-    tuple(req_val)))
-print(london_co[user_request][param_request])
+# My Second solution
+#user_request = input('Enter device name: ')
+#req_val = []
+#for london_co_key, london_co_value in london_co.items():
+#    if user_request == london_co_key:
+#        for u_k in london_co_value:
+#            req_val.append(u_k)
+#
+#param_request = input('Enter parameter name from the list - {}: '.format(
+#    tuple(req_val)))
+#print(london_co[user_request][param_request])
+

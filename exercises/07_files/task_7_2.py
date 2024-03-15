@@ -40,3 +40,10 @@ interface Ethernet0/3
 ...
 
 """
+from pprint import pprint
+
+with open("config_sw1.txt", "r") as file:
+    lines = file.readlines()
+    for line in lines:
+        if not line.startswith("!"):
+            print(line.rstrip())

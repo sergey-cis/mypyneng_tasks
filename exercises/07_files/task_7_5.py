@@ -63,3 +63,19 @@ config_trunk_sw3.txt. Переконайтеся, що в результаі д�
 
 """
 from pprint import pprint
+from sys import argv
+
+file = argv[1]
+
+interface_dict = {}
+
+with open(file, "r")as f:
+    for line in f:
+        if line.startswith("interface"):
+            intf = line.split()[-1]
+            switch = []
+        elif "switchport" in  line:
+            switch.append(line.strip())
+            interface_dict[intf] = switch
+
+pprint(interface_dict)

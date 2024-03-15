@@ -51,4 +51,18 @@ Correct!
 from random import randint
 
 random_number = randint(1, 9)
-# print(random_number)
+print(random_number)
+
+co = 5
+while co > 0:
+  i = int(input("Enter number: "))
+  co -=1
+  if i == random_number:
+    print("Correct")
+    break
+  elif i < random_number:
+    print("Youre guess is to low")
+  elif i > random_number:
+    print("Your guess is to high")
+  if co == 0:
+    print("Number not guessed after 5 tries")

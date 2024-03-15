@@ -17,3 +17,11 @@ MAC-адреса, має бути оброблена таким чином, що
 1000     0a4b.c380.7d00      Gi0/9
 
 """
+from pprint import pprint
+
+with open("CAM_table.txt", "r") as file:
+    for line in file:
+        columns = line.split()
+        if len(columns) > 3 and columns[0][0].isdigit():
+            vlan, mac, intf = columns[0].strip(), columns[1].strip(), columns[-1].strip()
+            print(f"{vlan:<8} {mac:<15} {intf:>10}")

@@ -22,3 +22,10 @@
 files = [
     "cfg_1.txt", "cfg_4.txt", "cfg_8.txt", "cfg_9.txt", "cfg_12.txt", "cfg_15.txt"
 ]
+result = []
+templ = """cfg_{:02}.txt"""
+
+for words in files:
+    repls = words.split("_")[1].split(".")[0]
+    result.append(templ.format(int(repls)))
+print(result)

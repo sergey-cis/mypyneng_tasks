@@ -32,3 +32,16 @@ Enter IP address: 250.1.1.1
 unused
 
 """
+ip = input("Enter IP address: ")
+ip_splited = ip.split(".")
+
+if 1 <= int(ip_splited[0]) < 224:   
+    print("unicast")
+elif 224 <= int(ip_splited[0]) <= 239:
+    print("multicast")
+elif ip == "0.0.0.0":
+    print("unassigned")
+elif ip == "255.255.255.255":
+    print("local broadcast")
+else:
+    print("unused")

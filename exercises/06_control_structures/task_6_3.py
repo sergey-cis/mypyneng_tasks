@@ -15,3 +15,26 @@ int. Написати код, який відбирає ті елементи з
 """
 
 data = ["a", "100", "30", 10.5, 20, "test", "15", 100]
+
+# Solution with for-loop
+
+"""
+result = []
+
+for symb in data:
+    if str(symb).isdigit():
+        result.append(int(symb))
+print(result)
+"""
+# Solution with try-except block:
+result = []
+
+for vlan in data:
+    try:
+        new_vl = int(vlan)
+    except ValueError:
+        pass
+    else:
+        result.append(new_vl)
+
+print(result)

@@ -46,5 +46,11 @@ line vty 0 4
 Перевірити роботу скрипта на конфігураційному файлі config_sw1.txt. Ім'я файлу
 передається як аргумент скрипту.
 """
-
+from pprint import pprint
 ignore = ["duplex", "alias", "configuration", "end", "service"]
+
+
+with open(filename) as f:
+    for line in f:
+        if not line.startswith("!"):
+            print(line.rstrip())
