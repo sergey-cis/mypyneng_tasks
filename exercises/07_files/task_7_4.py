@@ -39,7 +39,7 @@ config_trunk_sw3.txt. Переконайтеся, що в результаі д�
 switchport trunk allowed vlan.
 """
 from pprint import pprint
-#import sys
+
 from sys import argv
 #Send data by the sys.argv
 try:
@@ -47,7 +47,7 @@ try:
 except(NameError, IndexError):
     print("You have to enter file name")
 
-#print(sys.argv) or print(argv)
+
 trunk_dict = {}
 
 try:

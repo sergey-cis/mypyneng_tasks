@@ -49,8 +49,9 @@ line vty 0 4
 from pprint import pprint
 ignore = ["duplex", "alias", "configuration", "end", "service"]
 
-
-with open() as f:
+with open("config_sw1.txt", "r") as f:
     for line in f:
-        if not line.startswith("!"):
+        words = line.split()
+        words_intersect = set(words) & set(ignore)
+        if not line.startswith("!") and not words_intersect:
             print(line.rstrip())

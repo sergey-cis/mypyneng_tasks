@@ -15,11 +15,16 @@ $ python task_7_2b.py config_sw1.txt new_config.txt
 ignore та рядки, що починаються на '!'.
 """
 from pprint import pprint
+from sys import argv
 
 ignore = ["duplex", "alias", "configuration", "end", "service"]
 
-with open("config_sw1.txt", "r") as src, open("config_sw1_new.txt", "w") as dst:
+filename = argv[1]
+
+with open(filename, "r") as src, open("new_config.txt", "w") as dst:
     for line in src:
-        if not line.startswith("!") and not any(word in line for word in ignore):
+        words = line.split()
+        words_intersect = set(words) & set(ignore)
+        if not line.startswith("!") and not words_intersect:
             dst.write(line)
-            
+            #print(line.strip())
