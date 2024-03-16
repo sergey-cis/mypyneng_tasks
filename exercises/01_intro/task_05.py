@@ -8,3 +8,6 @@
 words = ["line", "test", "column"]
 index = 2
 
+print(words[index])
+for i in range(index):
+    print(words[i])
