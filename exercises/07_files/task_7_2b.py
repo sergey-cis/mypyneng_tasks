@@ -14,17 +14,17 @@ $ python task_7_2b.py config_sw1.txt new_config.txt
 При цьому повинні бути відфільтровані рядки зі словами, які містяться в списку
 ignore та рядки, що починаються на '!'.
 """
-from pprint import pprint
 from sys import argv
 
 ignore = ["duplex", "alias", "configuration", "end", "service"]
 
-filename = argv[1]
+file_name1 = argv[1]
+file_name2 = argv[2]
 
-with open(filename, "r") as src, open("new_config.txt", "w") as dst:
+
+with open(file_name1, "r") as src, open(file_name2, 'w') as dst:
     for line in src:
         words = line.split()
         words_intersect = set(words) & set(ignore)
         if not line.startswith("!") and not words_intersect:
             dst.write(line)
-            #print(line.strip())

@@ -51,6 +51,7 @@ switchport trunk allowed vlan 2,3,4,5
 """
 
 access_template = """
+interface {}
 switchport mode access
 switchport access vlan {}
 switchport nonegotiate
@@ -58,6 +59,7 @@ spanning-tree portfast
 spanning-tree bpduguard enable
 """
 trunk_template = """
+interface {}
 switchport trunk encapsulation dot1q
 switchport mode trunk
 switchport trunk allowed vlan {}
@@ -67,9 +69,9 @@ ask_mode = input("Enter interface mode (access/trunk): ").strip()
 ask_num = input("Enter interface (type and number): ").strip()
 ask_vlan = input("Enter VLAN(s) number: ").strip()
 
-interface={"mode": ask_mode, "number":ask_num, "vlan":ask_vlan}
+interface={"mode":ask_mode, "number":ask_num, "vlan":ask_vlan}
 
 if interface.get("mode") == "trunk":
-    print("interface", interface.get("number"), trunk_template.format(interface.get("vlan").strip()))
+    print(trunk_template.format(interface.get("number"),interface.get("vlan")))
 if interface.get("mode") == 'access':
-    print("interface", interface.get("number"), access_template.format(interface.get("vlan").strip()))
+    print(access_template.format(interface.get("number"),interface.get("vlan").strip()))

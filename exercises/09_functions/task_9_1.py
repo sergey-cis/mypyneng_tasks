@@ -35,6 +35,18 @@ aa:aa:bb:bb:cc:cc
 У завданнях 9го розділу і далі, крім зазначеної функції, можна створювати
 будь-які додаткові функції.
 """
+from pprint import pprint
 
 mac_list = ["1a1b.2c2d.3e3f", "aaaa.bbbb.cccc", "1111.2222.3333"]
 
+def convert_mac(m):
+   """Convert of MAC address format 
+ from xxxx.xxxx.xxxx to xx:xx:xx:xx"""
+   mac = m.replace(".", "")
+   new_mac = ':'.join(mac[i:i+2] for i in range(0,12,2))
+   return new_mac
+
+for m in mac_list:
+   converted = convert_mac(m)
+   print(converted)
+    

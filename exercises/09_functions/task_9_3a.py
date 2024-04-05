@@ -90,6 +90,19 @@ Out[5]:
 У завданнях 9го розділу і далі, крім зазначеної функції, можна створювати
 будь-які додаткові функції.
 """
-
 ignore_list = ["duplex", "alias exec", "Current configuration", "service"]
+
+
+def clean_config(config_filename ="config_r3_short.txt", ignore_lines=None, ignore_exclamation=True, strip_lines=False, delete_empty_lines=True):
+  cfg_list = []
+  with open(config_filename) as f:
+    for line in f:
+      if ignore_exclamation:
+        print(line)
+      elif strip_lines:
+        print(line.strip())
+      elif delete_empty_lines:
+        pass
+        cfg_list.append(line.rstrip())
+    return cfg_list
 

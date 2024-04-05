@@ -48,5 +48,43 @@ False
 У завданнях 9го розділу і далі, крім зазначеної функції, можна створювати
 будь-які додаткові функції.
 """
-
+from pprint import pprint
 ip_list = ["10.1.1.1", "10.3.a.a", "500.1.1.1", "150.168.100.1", "62.150.240.300"]
+
+#def check_ip(ip):
+#    """ Check IP address format """
+
+
+
+def check_ip(ip):
+    """Checking IP addresses
+    Args:
+        IP addres
+    Returns:
+        True or False value
+    Raises:
+        N/A
+     """
+    int_ip = []
+    ip_spl = ip.split(".")
+    try:
+        oct1,oct2,oct3,oct4 = ip_spl
+        if len(ip_spl) == 4:
+            for oct in ip_spl:
+                if oct.isdigit:
+                    if int(oct) <=255:
+                        int_ip.append(int(oct))
+                    else:
+                        return False
+                else:
+                    return False 
+        else:
+            return False
+    except (KeyError, ValueError):
+        return False
+    else:
+        return True
+
+
+for addr in ip_list:
+    check_ip(addr)

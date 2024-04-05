@@ -56,9 +56,9 @@ try:
             if line.startswith("interface"):
                 intf = line.split()[-1]
             elif line.startswith(" switchport trunk allowed"):
-                trunk_dict[intf] = []
-                trun = line.split()[-1].strip()
-                trunk_dict[intf].append(trun)
+                vlans = line.split()[-1].split(",")
+                print(vlans)
+                trunk_dict[intf] = vlans
 except NameError:
     print("Give me please file")
 pprint(trunk_dict)
