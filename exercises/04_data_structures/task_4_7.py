@@ -27,6 +27,6 @@ print("{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^08b}{:^
                                         int(new_mac[9], 16), int(new_mac[10], 16), int(new_mac[11],16)))
                                         """
 
-#"Right solution"
+# "Right solution"
 result = int(mac.replace(":", ""), 16)
-print("{:b}".format(result))
+print("{:8b}".format(result))
